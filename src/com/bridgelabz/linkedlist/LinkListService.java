@@ -124,7 +124,57 @@ public class LinkListService {
 		}
 	}
 
+	public void delete(int data)
+	{
+		if(head == null)
+		{
+			System.out.println("The Link List is empty");
+		}
+		else if (head.data == data)
+		{
+			System.out.println("Node "+head.data+" deleted");
+			head = head.next;
+		}
+		else
+		{	
+			LinkList endNode = head;
+			LinkList currentNode = endNode;
+			while(endNode.next != null && endNode.data != data)
+			{
+				currentNode = endNode;
+				endNode = endNode.next;
+			}
+			if(endNode.data == data)
+			{
+				currentNode.next = endNode.next;
+				System.out.println("Node "+endNode.data+" deleted");
+			}
+			else
+			{
+				System.out.println(data+" Not Found");
+			}
+		}
+	}
 
+	public void size()
+	{
+		if(head == null)
+		{
+			System.out.println("The Linklist is empty");
+		}
+		else 
+		{	
+			int countNode = 1;
+			LinkList tempNode = head;
+			while(tempNode.next != null)
+			{
+				countNode++;
+				tempNode = tempNode.next;
+			}
+			
+			System.out.println("The number of nodes are "+countNode);
+		}
+	}
 	public void print()
 	{
 		if(head == null)

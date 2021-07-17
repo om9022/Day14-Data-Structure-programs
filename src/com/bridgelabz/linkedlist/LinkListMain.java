@@ -11,5 +11,8 @@ public class LinkListMain {
 		linkList.print();
 		linkList.insertAfter(30, 40);
 		linkList.print();
+		linkList.delete(40);
+		linkList.print();
+		linkList.size();
 	}
 }
