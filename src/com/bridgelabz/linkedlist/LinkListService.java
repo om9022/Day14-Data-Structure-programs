@@ -11,6 +11,7 @@ public class LinkListService {
 		newNode.data = data;
 		newNode.next = head;
 		this.head = newNode;
+		System.out.println("Added Node "+data);
 	}
 
 	public void append(int data)
@@ -31,8 +32,9 @@ public class LinkListService {
 			}
 			currentNode.next = newNode;
 		}
+		System.out.println("Added Node "+data);
 	}
-	
+
 	public void insertAfter(int afterNodeData , int data)
 	{
 		LinkList newNode = new LinkList();
@@ -41,6 +43,7 @@ public class LinkListService {
 		if (head == null) 
 		{			
 			this.head = newNode;
+			System.out.println("Added Node "+data);
 		}
 		else
 		{
@@ -57,13 +60,15 @@ public class LinkListService {
 			{				
 				newNode.next = currentNode.next;
 				currentNode.next = newNode;
+				System.out.println("Added Node "+data);
 			}
 
 		}
-		
+
 	}
-	
-	public void pop() {
+
+	public void pop()
+	{
 		if(head == null)
 		{
 			System.out.println("There is nothing to pop");
@@ -74,7 +79,28 @@ public class LinkListService {
 			head = head.next;
 		}
 	}
-	
+
+	public void poplast()
+	{
+		if(head == null)
+		{
+			System.out.println("There is nothing to pop");
+		}
+		else 
+		{
+			LinkList endNode = head;
+			LinkList currentNode = endNode;
+			while(endNode.next != null)
+			{
+				currentNode = endNode;
+				endNode = endNode.next;
+			}
+			System.out.println("Node "+endNode.data+" deleted");
+			currentNode.next = null;
+		}
+	}
+
+
 	public void print()
 	{
 		if(head == null)

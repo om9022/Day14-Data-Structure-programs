@@ -8,7 +8,8 @@ public class LinkListMain {
 		linkList.add(56);
 		linkList.append(70);
 		linkList.insertAfter(56,30);
-		linkList.pop();
+		linkList.print();
+		linkList.poplast();
 		linkList.print();
 	}
 }
