@@ -63,15 +63,34 @@ public class LinkListService {
 		
 	}
 	
+	public void pop() {
+		if(head == null)
+		{
+			System.out.println("There is nothing to pop");
+		}
+		else 
+		{	
+			System.out.println("Node "+head.data+" deleted");
+			head = head.next;
+		}
+	}
+	
 	public void print()
 	{
-		LinkList tempNode = head;
-		System.out.println("The required linklist is");
-		while(tempNode.next != null)
+		if(head == null)
 		{
-			System.out.print(tempNode.data+" -> ");
-			tempNode = tempNode.next;
+			System.out.println("The Linklist is empty");
 		}
-		System.out.print(tempNode.data);
+		else 
+		{			
+			LinkList tempNode = head;
+			System.out.println("The required linklist is");
+			while(tempNode.next != null)
+			{
+				System.out.print(tempNode.data+" -> ");
+				tempNode = tempNode.next;
+			}
+			System.out.println(tempNode.data);
+		}
 	}
 }
