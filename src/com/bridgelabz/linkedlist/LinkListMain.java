@@ -9,7 +9,6 @@ public class LinkListMain {
 		linkList.append(70);
 		linkList.insertAfter(56,30);
 		linkList.print();
-		linkList.poplast();
-		linkList.print();
+		linkList.searchNode(30);
 	}
 }

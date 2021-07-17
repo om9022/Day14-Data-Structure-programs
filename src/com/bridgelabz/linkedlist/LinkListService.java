@@ -62,9 +62,7 @@ public class LinkListService {
 				currentNode.next = newNode;
 				System.out.println("Added Node "+data);
 			}
-
 		}
-
 	}
 
 	public void pop()
@@ -97,6 +95,32 @@ public class LinkListService {
 			}
 			System.out.println("Node "+endNode.data+" deleted");
 			currentNode.next = null;
+		}
+	}
+
+	public void searchNode(int searchData)
+	{
+		if(head == null)
+		{
+			System.out.println("The Link List is empty");
+		}
+		else
+		{	
+			int countPosition = 1;
+			LinkList currentNode = head;
+			while(currentNode.data != searchData && currentNode.next != null)
+			{
+				currentNode = currentNode.next;
+				countPosition++;
+			}
+			if(currentNode.data == searchData)
+			{
+				System.out.println(searchData+" Found at Location "+countPosition);
+			}
+			else
+			{
+				System.out.println(searchData+" Not Found");
+			}
 		}
 	}
 
