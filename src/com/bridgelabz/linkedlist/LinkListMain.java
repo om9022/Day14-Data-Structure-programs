@@ -5,14 +5,10 @@ public class LinkListMain {
 	public static void main(String[] args) {
 		System.out.println("Welcome to LinkList");
 		LinkListService linkList = new LinkListService();
-		linkList.add(56);
-		linkList.append(70);
-		linkList.insertAfter(56,30);
-		linkList.print();
-		linkList.insertAfter(30, 40);
-		linkList.print();
-		linkList.delete(40);
-		linkList.print();
-		linkList.size();
+		linkList.sortAdd(56);
+		linkList.sortAdd(30);
+		linkList.sortAdd(40);
+		linkList.sortAdd(70);
+		linkList.printSorted();
 	}
 }

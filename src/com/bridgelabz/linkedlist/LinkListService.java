@@ -3,7 +3,9 @@ package com.bridgelabz.linkedlist;
 public class LinkListService {
 	
 
+
 	LinkList head;
+	SortedLinkedList sortHead;
 
 	public void add(int data) 
 	{
@@ -171,7 +173,7 @@ public class LinkListService {
 				countNode++;
 				tempNode = tempNode.next;
 			}
-			
+
 			System.out.println("The number of nodes are "+countNode);
 		}
 	}
@@ -191,6 +193,64 @@ public class LinkListService {
 				tempNode = tempNode.next;
 			}
 			System.out.println(tempNode.data);
+		}
+	}
+
+	//	For Ordered list
+
+
+	public void sortAdd(int data) 
+	{
+		SortedLinkedList newNode = new SortedLinkedList();
+		newNode.sortData = data;
+		newNode.sortNext = null;
+		if (sortHead == null) 
+		{			
+			this.sortHead = newNode;	
+		}
+		else if(data < sortHead.sortData)
+		{
+			newNode.sortNext = sortHead;
+			sortHead = newNode;
+		}
+		else
+		{
+			SortedLinkedList checkNode = sortHead;
+			SortedLinkedList previousCheckNode = checkNode;
+			while(checkNode.sortNext != null && checkNode.sortData <= data)
+			{
+				previousCheckNode = checkNode;
+				checkNode = checkNode.sortNext;
+			}	
+			if (data < checkNode.sortData)
+			{				
+				newNode.sortNext = previousCheckNode.sortNext;
+				previousCheckNode.sortNext = newNode;
+			}
+			else
+			{
+				checkNode.sortNext = newNode;
+			}
+		}
+		System.out.println("Added Node "+data);
+	}
+
+	public void printSorted()
+	{
+		if(sortHead == null)
+		{
+			System.out.println("The Linklist is empty");
+		}
+		else 
+		{			
+			SortedLinkedList tempNode = sortHead;
+			System.out.println("The required linklist is");
+			while(tempNode.sortNext != null)
+			{
+				System.out.print(tempNode.sortData+" -> ");
+				tempNode = tempNode.sortNext;
+			}
+			System.out.println(tempNode.sortData);
 		}
 	}
 }
